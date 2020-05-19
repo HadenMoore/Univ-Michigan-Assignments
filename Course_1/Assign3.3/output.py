@@ -12,7 +12,6 @@ print a suitable error message and exit.
 For the test, enter a score of 0.85."""
 
 score = input("Enter Score: ")
-score = input("Enter Score: ")
 digit = float(score)
 if digit >=1 or digit <=0:
     print("out of range")
