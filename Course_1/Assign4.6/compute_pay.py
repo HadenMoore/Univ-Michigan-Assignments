@@ -13,10 +13,10 @@ Do not name your variable sum or use the sum() function."""
 def computepay(h,r):
 	if h<=40:
 		result = h*r
-	else:
-   	o = h-40    	
-	result = o*(r*1.50) + 40*r
-	return result
+        else:
+            o = h-40 
+            result = o*(r*1.50) + 40*r
+            return result
 
 hours = input("enter hours:")
 rate = input("enter rate:")
