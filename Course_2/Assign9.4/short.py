@@ -10,8 +10,23 @@ name = input("Enter file:")
 if len(name) < 1 : name = "mbox-short.txt"
 handle = open(name)
 
+mail = dict() 
+
 for lin in handle: 
     lin = lin.rstrip()
-    print(lin)
+    #print(lin)
     wds = lin.split()
-    print(wds)
+    #print(wds)
+    for w in wds:
+        # This prints the Word before
+        print(w)
+        if w in mail: 
+            mail[w] = mail[w] + 1
+            # Prints whether it is Existing
+            print('**Existing**')
+        else: 
+            mail[w] = 1
+            # Prints whether it is New
+            print('**NEW**')
+        print(mail[w])
+        # This prints the Count After
