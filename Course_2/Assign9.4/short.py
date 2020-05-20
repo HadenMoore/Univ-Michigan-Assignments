@@ -12,21 +12,24 @@ handle = open(name)
 
 mail = dict() 
 
-for lin in handle: 
-    lin = lin.rstrip()
-    #print(lin)
-    wds = lin.split()
+for line in handle: 
+    line = line.rstrip()
+    #print(line)
+    wds = line.split()
     #print(wds)
     for w in wds:
-        # This prints the Word before
-        print(w)
-        if w in mail: 
-            mail[w] = mail[w] + 1
-            # Prints whether it is Existing
-            print('**Existing**')
-        else: 
-            mail[w] = 1
-            # Prints whether it is New
-            print('**NEW**')
-        print(mail[w])
-        # This prints the Count After
+        mail[w] = mail.get(w, 0) +1 
+        #print(w, 'new', mail[w])
+
+#print(mail)
+
+# Now to Find the Most Common Word
+largest = -1
+theword = None
+for k, v in mail.items():
+    # print(k,v)
+    if v > largest:
+        largest = v
+        theword = k #Capture/Remember the KEY that was the Largest
+
+print('Done', theword, largest)

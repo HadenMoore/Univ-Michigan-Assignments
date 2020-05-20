@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red194\green125\blue100;
+\red203\green203\blue202;\red212\green213\blue153;\red183\green111\blue179;\red167\green197\blue151;\red67\green192\blue160;
+\red71\green138\blue206;\red88\green137\blue67;\red0\green0\blue0;\red203\green203\blue202;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c80772\c56796\c46790;
+\cssrgb\c83320\c83320\c83112;\cssrgb\c86247\c86215\c66392;\cssrgb\c77407\c52698\c75307;\cssrgb\c71035\c80830\c65726;\cssrgb\c30631\c78928\c69023;
+\cssrgb\c34146\c61677\c84338;\cssrgb\c41481\c59899\c33082;\cssrgb\c0\c1\c1;\cssrgb\c83411\c83411\c83099;}
+\margl1440\margr1440\vieww15160\viewh10980\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 """9.4 Write a program to read through the mbox-short.txt and figure out who has\strokec5 \
+\strokec4 sent the greatest number of mail messages. The program looks for 'From ' lines\strokec5 \
+\strokec4 and takes the second word of those lines as the person who sent the mail. The\strokec5 \
+\strokec4 program creates a Python dictionary that maps the sender's mail address to a\strokec5 \
+\strokec4 count of the number of times they appear in the file. After the dictionary is\strokec5 \
+\strokec4 produced, the program reads through the dictionary using a maximum loop to find\strokec5 \
+\strokec4 the most prolific committer. """\strokec5 \
+\
+name = \strokec6 input\strokec5 (\strokec4 "Enter file:"\strokec5 )\
+\strokec7 if\strokec5  \strokec6 len\strokec5 (name) < \strokec8 1\strokec5  : name = \strokec4 "mbox-short.txt"\strokec5 \
+handle = \strokec6 open\strokec5 (name)\
+\
+mail = \strokec9 dict\strokec5 () \
+\
+\strokec7 for\strokec5  lin \strokec10 in\strokec5  handle: \
+    lin = lin.rstrip()\
+    \strokec11 #print(lin)\strokec5 \
+    wds = lin.split()\
+    \strokec11 #print(wds)\strokec5 \
+    \strokec7 for\strokec5  w \strokec10 in\strokec5  wds:\
+        mail[w] = mail.get(w, \strokec8 0\strokec5 ) +\strokec8 1\strokec5  \
+        \strokec11 #print(w, 'new', mail[w])\strokec5 \
+\
+\strokec11 #print(mail)\strokec5 \
+\
+\strokec11 # Now to Find the Most Common Word\strokec5 \
+largest = -\strokec8 1\strokec5 \
+theword = \strokec10 None\strokec5 \
+\strokec7 for\strokec5  k, v \strokec10 in\strokec5  mail.items():\
+    \strokec11 # print(k,v)\strokec5 \
+    \strokec7 if\strokec5  v > largest:\
+        largest = v\
+        theword = k \strokec11 #Capture/Remember the KEY that was the Largest\strokec5 \
+\
+\strokec6 print\strokec5 (\strokec4 'Done'\strokec5 , theword, largest)\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf12 \strokec13 \
+}
