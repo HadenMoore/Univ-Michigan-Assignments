@@ -10,26 +10,22 @@ name = input("Enter file:")
 if len(name) < 1 : name = "mbox-short.txt"
 handle = open(name)
 
-mail = dict() 
+lst = list()
 
-for line in handle: 
-    line = line.rstrip()
-    #print(line)
-    wds = line.split()
-    #print(wds)
-    for w in wds:
-        mail[w] = mail.get(w, 0) +1 
-        #print(w, 'new', mail[w])
+for line in handle:
+    if not line.startswith("From:"): continue
+    line = line.split()
+    lst.append(line[1])
 
-#print(mail)
+counts = dict()
+for word in lst:
+    counts[word] = counts.get(word,0) + 1
 
-# Now to Find the Most Common Word
-largest = -1
-theword = None
-for k, v in mail.items():
-    # print(k,v)
-    if v > largest:
-        largest = v
-        theword = k #Capture/Remember the KEY that was the Largest
+bigcount = None
+bigword = None
+for word,count in counts.items(): 
+    if bigcount is None or count > bigcount:
+        bigcount = count
+        bigword = word
 
-print('Done', theword, largest)
+print (bigword,bigcount)
