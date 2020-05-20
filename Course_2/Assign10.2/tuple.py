@@ -8,3 +8,25 @@ Once you have accumulated the counts for each hour, print out the counts, sorted
 name = input("Enter file:")
 if len(name) < 1 : name = "mbox-short.txt"
 handle = open(name)
+
+
+
+
+
+
+
+
+# Desired Output
+
+# 04 3
+# 06 1
+# 07 1
+# 09 2
+# 10 3
+# 11 6
+# 14 1
+# 15 2
+# 16 4
+# 17 2
+# 18 1
+# 19 1
