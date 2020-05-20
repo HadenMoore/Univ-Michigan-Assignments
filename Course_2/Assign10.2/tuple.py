@@ -5,15 +5,20 @@ using a colon.
 From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
 Once you have accumulated the counts for each hour, print out the counts, sorted by hour as shown below."""
 
+
 name = input("Enter file:")
 if len(name) < 1 : name = "mbox-short.txt"
 handle = open(name)
 
+hours = dict()
 
+for line in handle:
+   if line.startswith("From "):
+        hour = line.split()[5].split(':')[0] 
+        hours[hour] = hours.get(hour, 0) + 1
 
-
-
-
+for k, v in sorted(hours.items(), None):
+    print (k,v)
 
 
 # Desired Output
