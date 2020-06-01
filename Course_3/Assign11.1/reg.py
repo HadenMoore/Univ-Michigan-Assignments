@@ -20,7 +20,7 @@ I have included a sample file to test the program."""
 
 import re
 count = 0
-handle = open("sample_42.txt")
+handle = open("test_555672.txt")
 lines = handle.read()
 match = re.findall('[0-9]+',lines)
 for i in match:
@@ -31,4 +31,4 @@ print(count)
 
 #Sample File Sum After Running = 445833
 
-# Test File Sum After Running = 
+# Test File Sum After Running = 316497
