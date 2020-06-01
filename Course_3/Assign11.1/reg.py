@@ -27,3 +27,8 @@ for i in match:
 	number = int(i)
 	count = count + number
 print(count)
+
+
+#Sample File Sum After Running = 445833
+
+# Test File Sum After Running = 
