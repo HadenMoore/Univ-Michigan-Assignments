@@ -14,7 +14,7 @@ the URL. Note: Each student will have a distinct data url for the assignment - s
 # To run this, download the BeautifulSoup zip file
 # http://www.py4e.com/code3/bs4.zip
 # and unzip it in the same directory as this file
-
+import bs4
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import ssl
