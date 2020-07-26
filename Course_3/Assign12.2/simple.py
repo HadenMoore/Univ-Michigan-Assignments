@@ -22,5 +22,18 @@ url = input('Enter - ')
 html = urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, "html.parser")
 
-# To Retrieve all <span> Tags: 
-tags = soup('')
+# To Retrieve all of the Anchor Tags: 
+tags = soup('a')
+for tag in tags: 
+    # Look at the Parts Of a Tag: 
+    print('TAG:', tag)
+    print('URL:', tag.get('href', None))
+    print('Contents:', tag.contents[0])
+    print('Attrs:', tag.attrs)
+
+
+
+
+
+# # To Retrieve all <span> Tags: 
+# tags = soup('')
