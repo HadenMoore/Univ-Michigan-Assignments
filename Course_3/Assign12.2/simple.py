@@ -24,8 +24,7 @@ soup = BeautifulSoup(html, "html.parser")
 
 # To Retrieve all of the Anchor Tags: 
 tags = soup('a')
-for tag in tags: 
-    # Look at the Parts Of a Tag: 
+for tag in tags:
     print('TAG:', tag)
     print('URL:', tag.get('href', None))
     print('Contents:', tag.contents[0])
