@@ -1,7 +1,7 @@
 import sqlite3
 import urllib.request, urllib.error
 
-conn = sqlite3.connect('emaildb.sqlite')
+conn = sqlite3.connect('emaildb.db')
 cur = conn.cursor()
 
 cur.execute('DROP TABLE IF EXISTS Counts')
