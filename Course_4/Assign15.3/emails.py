@@ -1,13 +1,6 @@
 import sqlite3
 import urllib
-import urllib.parse, urllib.error
-import urllib.request
-import ssl
-# Ignore SSL certificate errors
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-
+import sqlite3
 
 conn = sqlite3.connect('emaildb.sqlite')
 cur = conn.cursor()
@@ -17,8 +10,7 @@ cur.execute('DROP TABLE IF EXISTS Counts')
 cur.execute('''
 CREATE TABLE Counts (email TEXT, count INTEGER)''')
 
-fname = "http://www.pythonlearn.com/code/mbox.txt"
-fh = urllib.request.urlopen(fname)
+fname = input('Enter file name: ')
 if (len(fname) < 1): fname = 'mbox-short.txt'
 fh = open(fname)
 for line in fh:
@@ -33,7 +25,8 @@ for line in fh:
     else:
         cur.execute('UPDATE Counts SET count = count + 1 WHERE email = ?',
                     (email,))
-    conn.commit()
+    
+conn.commit()
 
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT email, count FROM Counts ORDER BY count DESC LIMIT 10'
