@@ -10,9 +10,10 @@ cur.execute('DROP TABLE IF EXISTS Counts')
 cur.execute('''
 CREATE TABLE Counts (email TEXT, count INTEGER)''')
 
-fname = input('Enter file name: ')
-if (len(fname) < 1): fname = 'mbox-short.txt'
-fh = open(fname)
+#Indicating the file (URL)
+fname = "http://www.pythonlearn.com/code3/mbox.txt"
+fh = urllib.request.urlopen(fname)
+
 for line in fh:
     if not line.startswith('From: '): continue
     pieces = line.split()
@@ -34,4 +35,11 @@ sqlstr = 'SELECT email, count FROM Counts ORDER BY count DESC LIMIT 10'
 for row in cur.execute(sqlstr):
     print(str(row[0]), row[1])
 
+# Getting the top 10 results and showing them
+sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
+
+print("Counts:")
+for row in cur.execute(sqlstr) :
+    print(str(row[0]), row[1])
+    
 cur.close()
