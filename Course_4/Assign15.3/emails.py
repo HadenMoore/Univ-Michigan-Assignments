@@ -25,14 +25,14 @@ for line in fh:
     else:
         cur.execute('UPDATE Counts SET count = count + 1 WHERE email = ?',
                     (email,))
-    
-conn.commit()
 
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT email, count FROM Counts ORDER BY count DESC LIMIT 10'
 
 for row in cur.execute(sqlstr):
     print(str(row[0]), row[1])
+
+conn.commit()
 
 # Getting the top 10 results and showing them
 sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
