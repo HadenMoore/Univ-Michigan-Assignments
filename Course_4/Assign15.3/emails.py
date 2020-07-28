@@ -1,5 +1,5 @@
 import sqlite3
-import urllib.request
+import urllib.request, urllib.error
 
 conn = sqlite3.connect('emaildb.sqlite')
 cur = conn.cursor()
