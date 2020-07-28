@@ -10,7 +10,7 @@ cur.execute('''
 CREATE TABLE Counts (email TEXT, count INTEGER)''')
 
 #Indicating the file (URL)
-fname = "http://www.pythonlearn.com/code3/mbox.txt"
+fname = "https://www.py4e.com/code3/mbox.txt"
 fh = urllib.request.urlopen(fname)
 
 for line in fh:
