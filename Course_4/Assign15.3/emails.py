@@ -17,6 +17,10 @@ for line in fh:
     if not line.startswith('From: '): continue
     pieces = line.split()
     email = pieces[1]
+    (emailname, organization) = email.split("@")
+    print(email)
+
+    #Update Table with Information:
     cur.execute('SELECT count FROM Counts WHERE email = ? ', (email,))
     row = cur.fetchone()
     if row is None:
