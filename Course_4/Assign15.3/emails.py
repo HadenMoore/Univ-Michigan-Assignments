@@ -1,6 +1,5 @@
 import sqlite3
-import urllib
-import sqlite3
+import urllib.request
 
 conn = sqlite3.connect('emaildb.sqlite')
 cur = conn.cursor()
@@ -41,5 +40,5 @@ sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
 print("Counts:")
 for row in cur.execute(sqlstr) :
     print(str(row[0]), row[1])
-    
+
 cur.close()
