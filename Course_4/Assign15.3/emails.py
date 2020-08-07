@@ -18,7 +18,7 @@ for line in fh:
     pieces = line.split()
     email = pieces[1]
     #(emailname, organization) = email.split("@")
-    #print(email)
+    print(email)
 
     #Update Table with Information:
     cur.execute('SELECT count FROM Counts WHERE email = ? ', (email,))
