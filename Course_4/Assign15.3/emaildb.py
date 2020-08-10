@@ -16,7 +16,7 @@ for line in fh:
     pieces = line.split()
     email = pieces[1] 
     cur.execute('SELECT count FROM Counts WHERE email = ? ', (email,))
-    row - cur.fetchone()
+    row = cur.fetchone()
     if row is None: 
         cur.execute('''INSERT INTO Counts (email, count)
             VALUES (?, 1)''', (email,))
