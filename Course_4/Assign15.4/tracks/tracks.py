@@ -54,14 +54,15 @@ for entry in all:
     name = lookup(entry, 'Name')
     artist = lookup(entry, 'Artist')
     album = lookup(entry, 'Album')
+    genre = lookup(entry, 'Genre')
     count = lookup(entry, 'Play Count')
     rating = lookup(entry, 'Rating')
     length = lookup(entry, 'Total Time')
 
-    if name is None or artist is None or album is None : 
+    if artist is None or genre is None or album is None or name is None: 
         continue
 
-    print(name, artist, album, count, rating, length)
+    #print(name, artist, album, count, rating, length)
 
     cur.execute('''INSERT OR IGNORE INTO Artist (name) 
         VALUES ( ? )''', ( artist, ) )
